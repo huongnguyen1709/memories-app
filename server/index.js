@@ -14,7 +14,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 
 const CONNECTION_URL =
-  'mongodb+srv://huongnguyen:huong2502@memories-app.svt8dmv.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb+srv://huongnguyen:huong2502@memories-app.svt8dmv.mongodb.net/app-database';
 
 const PORT = process.env.PORT || 5000;
 

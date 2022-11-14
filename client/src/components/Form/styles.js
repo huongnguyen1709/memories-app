@@ -1,15 +1,16 @@
 import { makeStyles } from '@mui/styles';
-import { useTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme();
 
 export default makeStyles(() => ({
   root: {
     '& .MuiTextField-root': {
-      margin: useTheme().spacing(1),
+      margin: theme.spacing(1),
     },
   },
   paper: {
-    padding: useTheme().spacing(2),
+    // padding: useTheme().spacing(2),
   },
   form: {
     display: 'flex',
