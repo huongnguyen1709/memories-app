@@ -11,7 +11,7 @@ import useStyles from './styles';
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
-
+  console.log(currentId);
   const dispatch = useDispatch();
   const classes = useStyles();
 
