@@ -8,6 +8,10 @@ import {
   Container,
 } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+
+import { useDispatch } from 'react-redux';
+import { createOrGetUser } from '../../actions/auth';
 
 import Input from './Input';
 
@@ -17,10 +21,19 @@ const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {};
 
   const handleChange = () => {};
+
+  // const googleSuccess = (res) => {
+  //   try {
+  //     dispatch({ type: 'AUTH', data: { result, token } });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -80,7 +93,15 @@ const Auth = () => {
           >
             {isSignup ? 'Sign Up' : 'Sign In'}
           </Button>
+
           <Grid container justify='flex-end'>
+            <Grid item>
+              <GoogleLogin
+                onSuccess={(response) => dispatch(createOrGetUser(response))}
+                onError={(error) => console.log('Error')}
+              />
+            </Grid>
+
             <Grid item>
               <Button onClick={() => setIsSignup(!isSignup)}>
                 {isSignup

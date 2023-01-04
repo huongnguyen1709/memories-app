@@ -10,10 +10,10 @@ import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 
 const App = () => {
-  console.log(process.env);
-  console.log(process.env.REACT_APP_PUBLIC_GOOGLE_API_TOKEN);
   return (
-    <GoogleOAuthProvider clientId={process.env.PUBLIC_GOOGLE_API_TOKEN}>
+    <GoogleOAuthProvider
+      clientId={process.env.REACT_APP_PUBLIC_GOOGLE_API_TOKEN}
+    >
       <BrowserRouter>
         <Container maxWidth='lg'>
           <Navbar />
